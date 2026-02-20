@@ -64,105 +64,113 @@
         <p>Focused expertise across the full stack — Laravel, PHP, and beyond</p>
       </div>
 
-      <div class="services-grid">
+      <div class="services-accordion">
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fab fa-laravel"></i></div>
-          <h3>Laravel Development</h3>
-          <p>End-to-end feature development, refactoring, and optimization for Laravel applications. Modern best practices, clean architecture, and maintainable code throughout.</p>
-          <ul class="service-features">
-            <li>Custom feature development</li>
-            <li>Code refactoring and modernization</li>
-            <li>Performance optimization</li>
-            <li>RESTful API development</li>
-            <li>Blade templating and component design</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-bug"></i></div>
-          <h3>Bug Fixes & Debugging</h3>
-          <p>Fast, thorough debugging across Laravel, PHP, and JavaScript. I track down root causes rather than patching symptoms — fixes that hold.</p>
-          <ul class="service-features">
-            <li>Critical bug resolution</li>
-            <li>Database query debugging</li>
-            <li>JavaScript and jQuery fixes</li>
-            <li>Error tracking and logging</li>
-            <li>Performance bottleneck analysis</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-code"></i></div>
-          <h3>Legacy PHP Modernization</h3>
-          <p>Transform old, brittle PHP into clean, maintainable code. I assess structure, introduce type safety, and document as I go — leaving the codebase better than I found it.</p>
-          <ul class="service-features">
-            <li>PHP version upgrades</li>
-            <li>MVC restructuring</li>
-            <li>Security hardening</li>
-            <li>Inline documentation</li>
-            <li>Dependency management with Composer</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Frontend Development</h3>
-          <p>Responsive, accessible, and well-structured front ends. Comfortable across the stack — from layout to interactivity — with a sharp eye for detail and UX.</p>
-          <ul class="service-features">
-            <li>Responsive layouts with Bootstrap</li>
-            <li>Vanilla JS and jQuery</li>
-            <li>Custom CSS and animations</li>
-            <li>Form validation (client & server)</li>
-            <li>Cross-browser compatibility</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-database"></i></div>
-          <h3>Database Work</h3>
-          <p>Query optimization, schema improvements, and data integrity fixes for MySQL and MariaDB. I approach database work methodically — profiling first, optimizing with intent.</p>
-          <ul class="service-features">
-            <li>Query optimization and indexing</li>
-            <li>Schema design and improvements</li>
-            <li>Data validation and integrity</li>
-            <li>Laravel migration management</li>
-            <li>Performance profiling</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-users"></i></div>
-          <h3>Team Collaboration</h3>
-          <p>Integrates cleanly with existing teams and workflows. Clear written communication, clean commits, and no unnecessary noise. You stay informed without being overwhelmed.</p>
-          <ul class="service-features">
-            <li>Git workflow and branching</li>
-            <li>Code review participation</li>
-            <li>Written progress updates</li>
-            <li>Remote coordination</li>
-            <li>Documentation as standard</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- What I don't handle -->
-      <div class="limitations">
-        <h3><i class="fas fa-info-circle"></i> Outside My Scope</h3>
-        <div class="limitations-grid">
-          <div class="limitation-item">
-            <i class="fas fa-server"></i>
-            <span>Server administration or hosting setup</span>
-          </div>
-          <div class="limitation-item">
-            <i class="fas fa-network-wired"></i>
-            <span>DevOps, CI/CD pipelines, or infrastructure</span>
-          </div>
-          <div class="limitation-item">
-            <i class="fas fa-credit-card"></i>
-            <span>Payment processing integrations</span>
+        <!-- Service: Laravel Development -->
+        <div class="service-item">
+          <button class="service-toggle" aria-expanded="false">
+            <div class="service-toggle-left">
+              <div class="service-icon-sm"><i class="fab fa-laravel"></i></div>
+              <span>Laravel Development</span>
+            </div>
+            <i class="fas fa-chevron-down service-chevron"></i>
+          </button>
+          <div class="service-body" hidden>
+            <p>End-to-end feature development, refactoring, and optimization for Laravel applications. Modern best practices, clean architecture, and maintainable code throughout.</p>
+            <ul class="service-features">
+              <li>Custom feature development</li>
+              <li>Code refactoring and modernization</li>
+              <li>Performance optimization</li>
+              <li>RESTful API development</li>
+              <li>Blade templating and component design</li>
+            </ul>
           </div>
         </div>
+
+        <!-- Service: Bug Fixes -->
+        <div class="service-item">
+          <button class="service-toggle" aria-expanded="false">
+            <div class="service-toggle-left">
+              <div class="service-icon-sm"><i class="fas fa-bug"></i></div>
+              <span>Bug Fixes & Debugging</span>
+            </div>
+            <i class="fas fa-chevron-down service-chevron"></i>
+          </button>
+          <div class="service-body" hidden>
+            <p>Fast, thorough debugging across Laravel, PHP, and JavaScript. I track down root causes rather than patching symptoms — fixes that hold.</p>
+            <ul class="service-features">
+              <li>Critical bug resolution</li>
+              <li>Database query debugging</li>
+              <li>JavaScript and jQuery fixes</li>
+              <li>Error tracking and logging</li>
+              <li>Performance bottleneck analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service: Legacy PHP -->
+        <div class="service-item">
+          <button class="service-toggle" aria-expanded="false">
+            <div class="service-toggle-left">
+              <div class="service-icon-sm"><i class="fas fa-code"></i></div>
+              <span>Legacy PHP Modernization</span>
+            </div>
+            <i class="fas fa-chevron-down service-chevron"></i>
+          </button>
+          <div class="service-body" hidden>
+            <p>Transform old, brittle PHP into clean, maintainable code. I assess structure, introduce type safety, and document as I go — leaving the codebase better than I found it.</p>
+            <ul class="service-features">
+              <li>PHP version upgrades</li>
+              <li>MVC restructuring</li>
+              <li>Security hardening</li>
+              <li>Inline documentation</li>
+              <li>Dependency management with Composer</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service: Frontend -->
+        <div class="service-item">
+          <button class="service-toggle" aria-expanded="false">
+            <div class="service-toggle-left">
+              <div class="service-icon-sm"><i class="fas fa-laptop-code"></i></div>
+              <span>Frontend Development</span>
+            </div>
+            <i class="fas fa-chevron-down service-chevron"></i>
+          </button>
+          <div class="service-body" hidden>
+            <p>Responsive, accessible, and well-structured front ends. Comfortable across the stack — from layout to interactivity — with a sharp eye for detail and UX.</p>
+            <ul class="service-features">
+              <li>Responsive layouts with Bootstrap</li>
+              <li>Vanilla JS and jQuery</li>
+              <li>Custom CSS and animations</li>
+              <li>Form validation (client & server)</li>
+              <li>Cross-browser compatibility</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service: Database -->
+        <div class="service-item">
+          <button class="service-toggle" aria-expanded="false">
+            <div class="service-toggle-left">
+              <div class="service-icon-sm"><i class="fas fa-database"></i></div>
+              <span>Database Work</span>
+            </div>
+            <i class="fas fa-chevron-down service-chevron"></i>
+          </button>
+          <div class="service-body" hidden>
+            <p>Query optimization, schema improvements, and data integrity fixes for MySQL and MariaDB. I approach database work methodically — profiling first, optimizing with intent.</p>
+            <ul class="service-features">
+              <li>Query optimization and indexing</li>
+              <li>Schema design and improvements</li>
+              <li>Data validation and integrity</li>
+              <li>Laravel migration management</li>
+              <li>Performance profiling</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -215,6 +223,9 @@
           <div class="tech-tags">
             <span class="tech-tag"><i class="fab fa-git-alt"></i> Git</span>
             <span class="tech-tag"><i class="fab fa-github"></i> GitHub</span>
+            <span class="tech-tag">VS Code</span>
+            <span class="tech-tag">Laravel Telescope</span>
+            <span class="tech-tag">Postman</span>
           </div>
         </div>
 
@@ -231,26 +242,43 @@
       </div>
 
       <div class="approach-grid">
+
         <div class="approach-card">
           <div class="approach-number">01</div>
-          <h3>Clear Communication</h3>
-          <p>Text-based updates by default — no unnecessary meetings. You always know what's happening, what's next, and when to expect it. I keep things transparent and concise.</p>
+          <h3>MVP First</h3>
+          <p>Every project starts with a focused, working product. Core functionality is built clean and complete before anything else — no half-finished features, no loose ends. You get something real to use from day one.</p>
         </div>
+
         <div class="approach-card">
           <div class="approach-number">02</div>
+          <h3>Phased Rollout</h3>
+          <p>After the MVP is solid, we iterate. New features, refined flows, and additional pages are added in planned phases — each one building on a stable foundation. No big-bang releases, no surprises.</p>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-number">03</div>
           <h3>Meticulous Code</h3>
           <p>Every line is written with the next developer in mind. Readable structure, meaningful names, commented where it matters. Code that doesn't need explaining — but has it anyway.</p>
         </div>
+
         <div class="approach-card">
-          <div class="approach-number">03</div>
+          <div class="approach-number">04</div>
+          <h3>Clear Communication</h3>
+          <p>Text-based updates by default — no unnecessary meetings. You always know what's happening, what's next, and when to expect it. Transparent and concise throughout.</p>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-number">05</div>
           <h3>Fast Turnaround</h3>
           <p>Quick to respond, quick to deliver. Small fixes resolved within hours. Features scoped and shipped in days. I don't sit on things — momentum matters.</p>
         </div>
+
         <div class="approach-card">
-          <div class="approach-number">04</div>
+          <div class="approach-number">06</div>
           <h3>Solo or Team</h3>
           <p>Equally comfortable working independently or slotting into an existing team. Clean commits, proper branching, and no friction — I adapt to your workflow, not the other way around.</p>
         </div>
+
       </div>
 
       <!-- Rates -->
@@ -301,7 +329,8 @@
           <a href="https://github.com/ambercrest" target="_blank" rel="noopener" class="contact-link">
             github.com/ambercrest <i class="fas fa-external-link-alt"></i>
           </a>
-          <br><hr><br>
+        </div>
+        <div class="contact-card">
           <div class="contact-icon"><i class="fas fa-envelope"></i></div>
           <h3>Email</h3>
           <p>For project enquiries and collaboration discussions</p>
@@ -309,16 +338,20 @@
             laraveldev2026@gmail.com <i class="fas fa-paper-plane"></i>
           </a>
         </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <h3>Getting Started</h3>
-          <p>To help me give you a quick, accurate response — please include the following when reaching out:</p>
-          <p><i class="fas fa-check"></i> A brief description of your project or issue</p>
-          <p><i class="fas fa-check"></i> The technology stack you're working with</p>
-          <p><i class="fas fa-check"></i> Your timeline expectations</p>
-          <p><i class="fas fa-check"></i> Budget range, if applicable</p>
-          <p><i class="fas fa-clock"></i> Typically respond within 24 hours</p>
-        </div>
+      </div>
+
+      <div class="contact-info-box">
+        <h3>Getting Started</h3>
+        <p>To help me give you a quick, accurate response — please include the following when reaching out:</p>
+        <ul>
+          <li><i class="fas fa-check"></i> A brief description of your project or issue</li>
+          <li><i class="fas fa-check"></i> The technology stack you're working with</li>
+          <li><i class="fas fa-check"></i> Your timeline expectations</li>
+          <li><i class="fas fa-check"></i> Budget range, if applicable</li>
+        </ul>
+        <p class="response-time">
+          <i class="fas fa-clock"></i> Typically respond within 24 hours
+        </p>
       </div>
     </div>
   </section>
