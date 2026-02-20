@@ -221,51 +221,99 @@ section { padding: 60px 0; } /* reduced from 80 */
 .section-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
 /* ================================
-   SERVICES
+   SERVICES — ACCORDION
    ================================ */
 .services-section { background: var(--white); }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem; /* reduced from 2rem */
-  margin-bottom: 3rem;
+.services-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
 }
 
-.service-card {
-  background: var(--white);
-  padding: 2rem; /* reduced from 2.5rem */
-  border-radius: 12px;
+/* Each accordion row */
+.service-item {
   border: 1px solid var(--border);
-  transition: all .3s ease;
-  opacity: 0;
-  transform: translateY(20px);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow .2s ease;
 }
-.service-card.fade-in { opacity: 1; transform: translateY(0); }
-.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
+.service-item:hover { box-shadow: var(--shadow-md); }
+.service-item.is-open { border-color: var(--primary); box-shadow: var(--shadow-lg); }
 
-.service-icon {
-  width: 60px; height: 60px; /* reduced from 70 */
+/* Toggle button (the visible header row) */
+.service-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background .2s ease;
+  gap: 1rem;
+}
+.service-toggle:hover { background: var(--gray-100); }
+.service-item.is-open .service-toggle { background: var(--gray-100); }
+
+.service-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.service-toggle-left span {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Small icon badge on toggle row */
+.service-icon-sm {
+  width: 42px; height: 42px;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
-  border-radius: 14px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
-  margin-bottom: 1.25rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
-.service-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: .75rem; }
-.service-card p  { color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.7; }
+/* Chevron rotates when open */
+.service-chevron {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  transition: transform .3s ease;
+  flex-shrink: 0;
+}
+.service-item.is-open .service-chevron { transform: rotate(180deg); color: var(--primary); }
+
+/* Collapsible body */
+.service-body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.service-body[hidden] { display: none; }
+
+.service-body p {
+  color: var(--text-secondary);
+  margin: 1rem 0;
+  line-height: 1.7;
+  font-size: .95rem;
+}
 
 .service-features { list-style: none; }
 .service-features li {
   padding: .4rem 0 .4rem 1.75rem;
   position: relative;
   color: var(--text-secondary);
-  font-size: .95rem;
+  font-size: .9rem;
+  border-bottom: 1px solid var(--gray-200);
 }
+.service-features li:last-child { border-bottom: none; }
 .service-features li::before {
   content: '✓';
   position: absolute;
@@ -273,35 +321,6 @@ section { padding: 60px 0; } /* reduced from 80 */
   color: var(--success);
   font-weight: 700;
 }
-
-/* Outside my scope box */
-.limitations {
-  background: var(--gray-100);
-  padding: 2rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--primary);
-}
-.limitations h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1.25rem;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-}
-.limitations h3 i { color: var(--primary); }
-.limitations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-.limitation-item {
-  display: flex;
-  align-items: center;
-  gap: .9rem;
-  background: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-.limitation-item i    { font-size: 1.5rem; color: var(--text-secondary); opacity: .5; }
-.limitation-item span { color: var(--text-secondary); font-size: .9rem; }
 
 /* ================================
    TECH STACK
