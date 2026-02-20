@@ -1,77 +1,70 @@
-// LaravelDev Portfolio - Main JavaScript
+/**
+ * AmberCrest Portfolio — script.js
+ * Handles: mobile nav, smooth scroll, navbar scroll effect, fade-in animations
+ */
 
-// Mobile navigation toggle
+// ================================
+// MOBILE NAVIGATION TOGGLE
+// ================================
 const mobileToggle = document.querySelector('.mobile-toggle');
-const navMenu = document.querySelector('.nav-menu');
+const navMenu      = document.querySelector('.nav-menu');
 
 if (mobileToggle && navMenu) {
-  mobileToggle.addEventListener('click', function() {
+  mobileToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     mobileToggle.classList.toggle('active');
   });
 }
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-  anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
+// ================================
+// SMOOTH SCROLLING (anchor links)
+// ================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    const href = anchor.getAttribute('href');
     if (href === '#') return;
-    
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const navbar = document.querySelector('#navbar');
-      const navHeight = navbar ? navbar.offsetHeight : 0;
-      const targetPos = target.offsetTop - navHeight;
-      
-      window.scrollTo({
-        top: targetPos,
-        behavior: 'smooth'
-      });
 
-      // Close mobile menu after navigation
-      if (navMenu) {
-        navMenu.classList.remove('active');
-      }
-      if (mobileToggle) {
-        mobileToggle.classList.remove('active');
-      }
+    e.preventDefault();
+
+    const target  = document.querySelector(href);
+    const navbar  = document.querySelector('#navbar');
+    const navH    = navbar ? navbar.offsetHeight : 0;
+
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - navH, behavior: 'smooth' });
+
+      // Close mobile menu after navigating
+      navMenu?.classList.remove('active');
+      mobileToggle?.classList.remove('active');
     }
   });
 });
 
-// Navbar background on scroll
+// ================================
+// NAVBAR — add shadow on scroll
+// ================================
 const navbar = document.querySelector('#navbar');
 
-window.addEventListener('scroll', function() {
-  const currentScroll = window.pageYOffset;
-  
-  if (navbar) {
-    if (currentScroll > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
-});
+window.addEventListener('scroll', () => {
+  if (!navbar) return;
+  navbar.classList.toggle('scrolled', window.pageYOffset > 50);
+}, { passive: true });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
+// ================================
+// INTERSECTION OBSERVER — fade-in cards
+// ================================
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('fade-in');
-      observer.unobserve(entry.target);
+      observer.unobserve(entry.target); // only animate once
     }
   });
-}, observerOptions);
-
-// Observe service cards and other animated elements
-const animatedElements = document.querySelectorAll('.service-card, .approach-card, .tech-category, .contact-card');
-animatedElements.forEach(function(el) {
-  observer.observe(el);
+}, {
+  threshold:  0.1,
+  rootMargin: '0px 0px -50px 0px'
 });
+
+// Observe all animated elements
+document.querySelectorAll('.service-card, .approach-card, .tech-category, .contact-card')
+  .forEach(el => observer.observe(el));
